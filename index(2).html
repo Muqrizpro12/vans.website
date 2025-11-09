@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vans | Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* ===== General Styles ===== */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      color: #fff;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0,0,0,0.7);
+      padding: 15px 0;
+      z-index: 100;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover { text-decoration: underline; color: red; }
+
+    section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px 40px 20px; text-align: center; position: relative; }
+
+    h1,h2,h3 { font-family: 'Montserrat', sans-serif; margin: 10px 0; }
+    h1 { font-size: 60px; letter-spacing: 2px; }
+    h2 { font-size: 40px; margin-bottom: 30px; }
+    h3 { font-size: 22px; margin-bottom: 15px; }
+
+    img.logo { width: 150px; border-radius: 20px; margin-bottom: 20px; }
+
+    /* ===== Homepage Section ===== */
+    #home {
+      background: url('https://www.bons-plans-malins.com/wp-content/uploads/2023/11/Vente-privee-de-vetements-et-chaussures-Vans.jpg') center/cover no-repeat fixed;
+      color: #fff;
+    }
+
+    #home::before {
+      content: "";
+      position: absolute;
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+      filter: blur(3px);
+    }
+
+    #home .content { position: relative; z-index: 1; }
+
+    #home .title { font-size: 3.5em; font-weight: 700; margin: 30px 0 20px; letter-spacing: 2px; }
+    #home .description { font-size: 1.5em; font-weight: 500; margin: 30px auto; max-width: 900px; line-height: 1.5em; }
+    #home .slogan { font-size: 1.8em; font-weight: 600; font-style: italic; margin-top: 20px; letter-spacing: 1px; }
+
+    #home .images img { margin: 10px; border-radius: 12px; width: 300px; height: 200px; object-fit: cover; }
+
+    #home a.button { display: inline-block; padding: 12px 28px; background-color: black; color: white; text-decoration: none; font-weight: 600; border-radius: 25px; letter-spacing: 1px; transition: 0.3s ease; margin-top: 30px; }
+    #home a.button:hover { background-color: #333; transform: scale(1.05); }
+
+    @media (max-width: 768px) {
+      #home .title { font-size: 2.2em; }
+      #home .description { font-size: 1.1em; padding: 0 15px; }
+      #home .images img { width: 90%; height: auto; }
+    }
+
+    /* ===== About Us Section ===== */
+    #about { background-color: #3e2723; padding-top: 100px; color: #fff; }
+
+    .profile-container { max-width: 1200px; margin: 0 auto; }
+    .manager-section { display: flex; justify-content: space-between; flex-wrap: nowrap; gap: 15px; }
+    .person { width: 18%; background: rgba(255,255,255,0.15); border-radius: 15px; padding: 10px; text-align: center; font-size: 14px; transition: transform 0.3s; }
+    .person:hover { transform: scale(1.05); }
+    .person img { width: 90px; height: 90px; border-radius: 50%; margin-bottom: 5px; }
+    .person b { color: #fff; }
+
+    @media (max-width: 992px) { .manager-section { flex-wrap: wrap; justify-content: center; } .person { width: 40%; margin-bottom: 10px; } }
+    @media (max-width: 480px) { .person { width: 90%; } }
+
+    /* ===== Products Section ===== */
+    #products { background-color: #fff8e7; color: #3e2723; padding-top: 80px; }
+
+    .products { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin: 40px; }
+    .product { background-color: #3e2723; padding: 15px; border-radius: 20px; width: 250px; color: #fff; text-align: center; }
+    .product img { width: 220px; height: 180px; border-radius: 15px; object-fit: cover; }
+    .product h3 { margin: 10px 0; font-size: 18px; }
+    .product p { font-weight: bold; font-size: 16px; }
+    .product button { background-color: #e75480; color: #fff; border: none; padding: 8px 15px; border-radius: 25px; cursor: pointer; margin-top: 5px; }
+    .product button:hover { background-color: #d63a68; }
+
+    /* ===== Contact Section ===== */
+    #contact {
+      background-color: #fff;
+      color: #000;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    #contact .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 10px;
+      padding: 50px 30px;
+      box-shadow: 8px 8px 0px #000;
+    }
+
+    #contact .logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #000;
+      box-shadow: 5px 5px 0px #000;
+    }
+
+    #contact h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2.2em;
+      margin-top: 20px;
+      letter-spacing: 1.5px;
+    }
+
+    #contact h2 {
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1em;
+      margin-top: -8px;
+      color: #555;
+    }
+
+    #contact hr {
+      border: none;
+      border-top: 2px solid #000;
+      margin: 25px 0;
+    }
+
+    #contact .contact-info {
+      font-size: 1em;
+      line-height: 1.8em;
+      font-weight: 500;
+    }
+
+    #contact .contact-info b { color: #000; }
+
+    #contact .nav {
+      margin-top: 35px;
+      border-top: 2px solid #000;
+      padding-top: 15px;
+    }
+
+    #contact .nav a {
+      text-decoration: none;
+      color: #000;
+      margin: 0 20px;
+      font-weight: 700;
+      transition: 0.3s;
+      letter-spacing: 1px;
+    }
+
+    #contact .nav a:hover { color: red; }
+
+    #contact .logo:hover {
+      transform: rotate(-5deg) scale(1.05);
+      transition: 0.3s ease;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #3e2723;
+      color: #fff;
+      padding: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    footer a { color: #e75480; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ===== Homepage Section ===== -->
+  <section id="home">
+    <div class="content">
+      <img class="logo" src="https://static.vecteezy.com/system/resources/previews/024/455/381/original/vans-brand-logo-white-symbol-clothes-design-icon-abstract-illustration-with-black-background-free-vector.jpg" width="200" height="200" alt="Vans Logo">
+      <div class="title">WELCOME TO VANS</div>
+      <div class="images">
+        <img src="https://www.mtlblog.com/media-library/someone-wears-checkered-vans-slip-ons-with-long-black-socks.jpg?id=34309345&width=980" alt="Vans Slip Ons">
+        <img src="https://i.pinimg.com/736x/c4/c4/10/c4c41095dd87d099785994926f3c0b5b.jpg" alt="Vans Old Skool">
+        <img src="https://www.skatedeluxe.com/blog/wp-content/uploads/2016/06/vans-sk8-hi-wear-test-side.jpg" alt="Vans Sk8-Hi">
+      </div>
+      <div class="description">Classic materials, time-tested construction. Designed for the creative and built to last.</div>
+      <div class="slogan">BORN FROM SKATE. BUILT FOR EVERYONE.</div>
+      <a href="#about" class="button">NEXT</a>
+    </div>
+  </section>
+
+  <!-- ===== About Us Section ===== -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Vans company was set up in 1966 with a starting capital of RM50,000.<br>1588 S Coast Dr, Costa Mesa, California 92626, U.S.</p>
+    <h2>Our Managers</h2>
+    <div class="profile-container">
+      <div class="manager-section">
+        <div class="person">
+          <img src="https://cdn.uitm.edu.my/gambar_warga/442a1c499812e89d9bb99e01b5ea1738.png" alt="Manager 1">
+          <b>Muhammad Razif Daniel</b><br>017-6415080<br>General Manager<br>razifdaniel4@gmail.com
+        </div>
+        <div class="person">
+          <img src="https://cdn.uitm.edu.my/gambar_warga/ad3ee8f72ecf3bd4e526f0d762eca733.png" alt="Manager 2">
+          <b>Anis Nurdina</b><br>014-291548<br>Financial Manager<br>anisnurdina949@gmail.com
+        </div>
+        <div class="person">
+          <img src="https://cdn.uitm.edu.my/gambar_warga/48ce7505540a708eb7996d5bc96a5627.png" alt="Manager 3">
+          <b>Iyman Izz Zikry</b><br>012-6278839<br>Administration Department<br>iymanizzzikry@gmail.com
+        </div>
+        <div class="person">
+          <img src="https://cdn.uitm.edu.my/gambar_warga/94ae75beba75c269d2232b6e2eaffcd8.png" alt="Manager 4">
+          <b>Muhammad Nur Muqriz</b><br>017-6703540<br>Marketing Manager<br>muhammadnurmuqriz@gmail.com
+        </div>
+        <div class="person">
+          <img src="https://cdn.uitm.edu.my/gambar_warga/cc578b4042e36b3ab54fe1fecff80783.png" alt="Manager 5">
+          <b>Mohamad Amin Ashraf</b><br>017-7677052<br>Human Resources<br>ashrafamin320@gmail.com
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Products Section ===== -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrFAFGc4e5TzEDv9f4z7PpQJXu7l7LY4qzHA&s" alt="Sneaker 1">
+        <h3>Classic Book Lovers White Slip On Vans</h3>
+        <p>RM480.00</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://5.imimg.com/data5/ANDROID/Default/2021/4/MJ/SJ/QX/35945583/product-jpeg-500x500.jpg" alt="Sport Shoe">
+        <h3>Vans of the Wall</h3>
+        <p>RM299.00</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://www.blvdcustom.com/cdn/shop/products/IMG_3513.jpg?v=1681985661&width=416" alt="Hot Flame Vans">
+        <h3>Hot Flame Vans</h3>
+        <p>RM189.00</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <section id="contact">
+    <div class="container">
+      <img src="https://static.vecteezy.com/system/resources/previews/024/455/381/original/vans-brand-logo-white-symbol-clothes-design-icon-abstract-illustration-with-black-background-free-vector.jpg" alt="Vans Logo" class="logo">
+      <h1>CONTACT US</h1>
+      <hr>
+      <div class="contact-info">
+        <b>PHONE</b><br>080-02346152<br>Monday - Friday (8 a.m. - 6 p.m.)<br><br>
+        <b>EMAIL</b><br>vanscustomersupport@gmail.com<br><br>
+        <b>ADDRESS</b><br>1588 S Coast Dr, Costa Mesa, California 92626, U.S.
+      </div>
+      <hr>
+      <div class="nav">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT US</a>
+        <a href="#products">PRODUCTS</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Vans.CO | All Rights Reserved</p>
+    <p>Follow us on Instagram: <a href="#">@vansmyofficial</a></p>
+  </footer>
+echo "# vans.website" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Muqrizpro12/vans.website.git
+git push -u origin main
+</body>
+</html>
